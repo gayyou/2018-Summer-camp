@@ -1,0 +1,194 @@
+/*
+初始化css
+*/
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,textarea,select,button{margin:0; padding:0;} 
+body {
+    font-size: 15px;
+    font-family: 'Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","å¾®è½¯é›…é»‘",Arial,sans-serif';   
+    font-weight: 500;
+    color: #000000;
+}
+a {
+    text-decoration:none;
+    resize: none;
+    outline: none;
+} 
+em {
+    font-style:normal;
+} 
+li{
+    list-style:none;
+} 
+img{
+    border:0; vertical-align:middle;
+} 
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+} 
+p {
+    word-wrap:break-word;
+}
+input {
+    outline: none;
+    resize: none;
+    border: none 0;
+}
+button {
+    border: none;
+    outline: none;
+    cursor:pointer;             
+}
+/*显示和隐藏*/
+.show {
+    display: block !important;
+}
+.hide {
+    display: none;
+}
+
+/* 弹出层 */
+.pop-container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -12;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    transition: opacity .5s;
+    background: transparent;
+    opacity: 0;
+}
+
+/* 显示弹出层 */
+
+.active-pop {
+    opacity: 1;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .8);
+}
+.active-pop .pop {
+    transform: translateY(20px);
+}
+.pop {
+    width: 450px;
+    min-height: 200px;
+    height: auto;
+    border-radius: 5px;
+    z-index: 200;
+    background-color: #fff;
+    display: inline-block;
+    margin-top: 35vh;   
+    transition: transform .5s;
+}
+.pop-content {
+    font-size: 22px;
+    height: auto;
+    padding: 50px;
+}
+.pop-button-container {
+    height: auto;
+    width: 100%;
+}
+.pop-button {
+    height: 35px;
+    width: 90px;
+    background-color: #0cf;
+    color: #fff;
+    border-radius: 4px;
+    margin:  30px;
+}
+#pop-button-1 {
+    background: rgb(209, 13, 13);
+}
+/* flex布局样式 */
+.flex-box {
+    display: flex;
+}
+
+/* 信息浮窗 */
+#info-box {
+    height: auto;
+    width: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 6px 12px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 #222;
+}
+#info-box::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 12px solid transparent;
+    border-top-color: #fff;
+    bottom: -22px;
+    left: 50%;
+    margin-left: -10px;
+}
+#content {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px 0;
+} 
+.set-button-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+}
+#start-button {
+    background-color: red;
+    margin-right: 25px;
+}
+.set-button {
+    border-radius: 5px;
+    font-size: 10px;
+    padding: 7px 13px;
+    color: #fff;
+    
+    cursor: pointer;
+    background:  #00ccff;
+}
+#close-container {
+    width: 100%;
+    height: auto;
+    text-align: right;
+}
+#close-button {
+    width: auto;
+    display: inline-block;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.recommand {
+    height: 28px;
+    width: 56px;
+    line-height: 28px;
+    background-color: #21d67f;
+    font-size: 15px;
+    border-radius: 3px;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -14px;
+    text-align: center;
+}
+
+/* 选择某条路时，对应的route-li高亮 */
+
+.route-highlight {
+    background-color: #bfffdf !important;
+}

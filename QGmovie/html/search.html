@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn-hans">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- < 引入初始化样式 > -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <!-- < 引入样式表 > -->
+    <link rel="stylesheet" href="../styles/search.css">
+    <!-- < 引入Echart > -->
+    <script src="../scripts/echarts.js"></script>
+    <!-- < 引入JQ > -->
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <!-- < 封装好的工具类 > -->
+    <script src="../scripts/util.js"></script>
+</head>
+
+<body>
+    <div class="root">
+        <!-- < 顶部栏 > -->
+        <div class="header">
+            <div class="logo-container">
+                <a href="javascript:" id="header-logo" style="opacity: 0;"><img src="../images/hlogo.png" ></a>
+            </div>        
+        </div>
+        <!-- < 搜索栏 > -->
+        <div class="search-container">
+            <div class="search-bg"></div>
+            <div class="search-logo">
+                <img src="../images/slogo.png" >
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="搜索你喜欢的电影">
+                <button id="search-button"><img src="../images/search2.png"></button>
+                <div class="tree-container">
+                    <div class="type-tree"></div>
+                </div>
+                <div class="put-down"></div>
+            </div>
+            <div class="show-movie">
+                
+                <ul class="tag-container">
+                <li class="confirm-type">确定</li>
+                </ul>
+                <ul class="movie-container">
+                    <!-- <li><a href=""><img src="../images/images/post.jpg"><p>我不是药神<span>8.1</span></p></a></li> -->
+                </ul>
+                <div class="show-more-button"><a href="javascript:">加载更多</a></div>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/search.js"></script>
+</body>
+
+</html>

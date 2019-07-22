@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn-hans">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- < 引入初始化样式 > -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <!-- < 引入样式表 > -->
+    <link rel="stylesheet" href="../styles/login.css">
+    <!-- < 引入JQ > -->
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <!-- < 封装好的工具类 > -->
+    <script src="../scripts/util.js"></script>
+</head>
+<body>
+    <!-- <登陆注册功能> -->
+    <div class="root">
+        <div class="main-floating-layer">
+            <div>
+                <span></span>
+                <button>确认</button>
+            </div>
+        </div>
+        <div class="logo-container"></div>
+        <div class="main-container">
+            <div class="switch-button">
+                <button>登陆</button><button class="button-active">注册</button>
+            </div>
+            <div class="form-container">
+                <div class="login-container active">
+                    <div class="input-container">
+                        <span class="account-icon"></span>
+                        <input type="text" name="userAccount" id="login-account" placeholder="账号">
+                    </div>
+                    <div class="input-container">
+                        <span class="password-icon"></span>
+                        <input type="password" name="userPassword" id="login-password" placeholder="密码" autocomplete="off">
+                        <a href="javascript:">忘记密码？</a>
+                    </div>
+                    <div class="button-container">
+                        <input type="button" id="login-button" value="登陆">
+                        <a href="javascript:">游客访问</a>
+                    </div>
+                </div>
+                <div class="signin-container hide">
+                    <div class="input-container">
+                            <div class="prompt"><div></div><span></span></div>
+                         <span class="email-icon"></span>
+                        <input type="text" name="userAccount" id="signin-account" placeholder="账号">
+                    </div>
+                    <div class="input-container">
+                            <div class="prompt"><div></div><span></span></div>
+                        <span class="username-icon"></span>
+                        <input type="text" name="userName" id="username" placeholder="用户名">
+                    </div>
+                    <div class="input-container">
+                        <div class="prompt"><div></div><span></span></div>
+                        <span class="password-icon"></span>
+                        <input type="password" name="userPassword" id="signin-password" placeholder="密码" autocomplete="off">
+                    </div>
+                    <div class="password-type">
+                        <span id="password-weak"></span><span id="password-mid"></span><span id="password-strong"></span><i>密码强度</i><b>弱</b>
+                    </div>
+                    <div class="input-container">
+                        <div class="prompt"><div></div><span></span></div>
+                        <span class="password-icon"></span>
+                        <input type="password" name="commitPassword" id="commit-password" placeholder="确认密码" autocomplete="off">
+                    </div>
+                    <div class="button-container">
+                        <input type="button" id="signin-button" value="注册">
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+
+    <!-- < 网页私有的js文件 > -->
+    <script src="../scripts/login.js"></script>
+</body>
+</html>

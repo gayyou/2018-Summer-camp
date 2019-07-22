@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- < 引入初始化样式 > -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <!-- < 引入样式表 > -->
+    <!-- < 引入JQ > -->
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <!-- < 封装好的工具类 > -->
+    <script src="../scripts/util.js"></script>
+    <style>
+    .recommend-rank-contianer {
+        background-color: '#F5EEF5';
+        width: 90%;
+        min-width: 1367px;
+        margin: 0 auto;
+    }
+    .recommend-container {
+        float: left;
+        width:75%;
+    }
+    .recommend-container>div {
+        position: relative;
+        margin-top: 40px;
+        width: 991.9px;
+        height: 350px;
+        margin: 0 auto;
+    }
+    .recommend-container span {
+        display: block;
+    }
+    .recommend-head {
+        width: 991.9px;
+        height: 80px;
+    }
+    .recommend-head>img {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin: 20px 30px;
+    }
+    .recommend-head>span {
+        margin-top: 21px;
+        font-size: 20px;
+        float: left;
+    }
+    .movie-item-container {
+        position: relative;
+        width: 991.9px;
+        height: 232.4px;
+        overflow: hidden;
+    }
+    .movie-item-container>ul {
+        position: absolute;
+        left: 0;
+        width: 2000px;
+    }
+    .movie-item-container li {
+        cursor: pointer;
+        float: left;
+        margin-left: 30px;
+        width: 130.3px;
+        height: 182.4px;
+        background-color: peachpuff;
+    }
+    .movie-bottom {
+        margin-top: 15px;
+        width: 100%;
+        font-size: 13px;
+        text-align: center;
+    }
+    .movie-bottom span {
+        float: left;
+        width: 100px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+    .movie-bottom b {
+        display: block;
+        float: left;
+        width: 30px;
+        color: orange;
+    }
+    .movie-image {
+        position: relative;
+        height: 182.4px;
+        width: 100%;
+        background-size: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .arrows {
+        position: absolute;
+        cursor: pointer;
+        width: 30px;
+        height: 182.4px;
+        top: 80px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 40%;
+        border-radius: 4px;
+    }
+    .arrows:hover {
+        background-color: rgba(0, 0, 0, .1);
+    }
+    .left-arrows {
+        background-image: url(../images/leftarrow.png);
+        left: -30px;
+    }
+    .right-arrows {
+        background-image: url(../images/rightarrow.png);
+        right: -30px;
+    }
+    .rank-container {
+        position: relative;
+        float: left;
+        margin: 80px auto;
+        width: 25%;
+        /* height: 647px; */
+    }
+    .rank-container ul {
+        width: 90%;
+        min-height: 400px;
+        /* height: 647px; */
+        padding-top: 10px;
+        background-color: #F1F7FE;
+        margin: 0 auto;
+    }
+    .rank-container span {
+        display: block;
+        margin-left: 30px;
+        height: 40px;
+        font-size: 18px;
+    }
+    .rank-container li {
+        width: 80%;
+        height: 30px;
+        margin: 20px auto;
+        border-bottom: 0.5px solid rgba(0, 0, 0, .05);
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+    </style>
+
+</head>
+<body>
+    <div class="recommend-rank-contianer">
+    <div class="recommend-container">
+        <div class="hot-movie">
+            <div class="recommend-head">
+                <img src="../images/hot-movie.png">
+                <span>影院热映</span>
+            </div>
+            <div class="movie-item-container">
+            <ul >
+            </ul>
+            </div>
+            <span class="arrows left-arrows" ></span>
+            <span class="arrows right-arrows" ></span>
+        </div>
+        <div class="new-movie">
+            <div class="recommend-head">
+                <img src="../images/new-movie.png">
+                <span>新片速递</span>
+            </div>
+            <div class="movie-item-container">
+            <ul >
+            </ul>
+            </div>
+            <span class="arrows left-arrows" ></span>
+            <span class="arrows right-arrows" ></span>
+        </div>
+        <div class="high-commit-movie">
+            <div class="recommend-head">
+                <img src="../images/hight-commit.png">
+                <span>高评好片</span>
+            </div>
+            <div class="movie-item-container">
+            <ul >
+            </ul>
+            </div>
+            <span class="arrows left-arrows" ></span>
+            <span class="arrows right-arrows" ></span>
+        </div>
+        <div class="person-recommend-movie">
+            <div class="recommend-head">
+                <img src="../images/person-recommend.png">
+                <span>个人推荐</span>
+            </div>
+            <div class="movie-item-container">
+            <ul >
+            </ul>
+            </div>
+            <span class="arrows left-arrows" ></span>
+            <span class="arrows right-arrows" ></span>
+        </div>
+    </div>
+    <div class="rank-container">
+        <ul>
+            <span>浏览排行榜</span>
+        </ul>
+    </div>
+    </div>
+    <script>
+
+        
+    function movieMove($clickTarget) {
+        if ($clickTarget.hasClass('left-arrows') === true) {
+            if (!$clickTarget.parent().children(':eq(1)').children('ul').is(':animated')) {
+                    $clickTarget.parent().children(':eq(1)').children('ul').animate({
+                    left: '+=961.8px',
+                }, 500, function() {
+                    arrowsVisibility($clickTarget)
+                    });
+            }
+        } else {
+            if (!$clickTarget.parent('div').children(':eq(1)').children('ul').is(':animated')) {
+                    $clickTarget.parent('div').children(':eq(1)').children('ul').animate({
+                    left: '-=961.8px',
+                }, 500, function() {
+                    arrowsVisibility($clickTarget)
+                    });
+            }
+        }
+
+    }
+
+    function arrowsVisibility($arrow) {
+        if ($arrow.parent('div').children(':eq(1)').children('ul').css('left') == '0px') {
+            $arrow.css('display', 'none');
+        } else {
+            if ($arrow.hasClass('left-arrows') == true) {
+                $arrow.next().css('display', 'block');
+            }
+        }
+
+        if ($arrow.parent('div').children(':eq(1)').children('ul').css('left') == '-3847.2px') {
+            $arrow.css('display', 'none');
+        } else {
+            if ($arrow.hasClass('right-arrows') == true) {
+                $arrow.prev().css('display', 'block');
+            } 
+        }
+    }
+
+    $('.arrows').click(function(event) {
+        movieMove($(event.target));
+    });
+    
+    function createLi(recommendArea, json) {
+        recommendArea.innerHTML += '<li movie-id='+ json.movieID +'><div class="movie-image" style="background-image: url(' + json.picture + ')" ></div><div class="movie-bottom"><span>' + json.movieName + '</span><b>' + json.score + '</b></div></li>'
+    }
+
+    function createRank(rankContainer, json) {
+        reankContainer.innerHTML += '<li movie-id='+ json.movieID +'>'+ json.movieName +'</li>';
+    }
+
+    function recommendInit() {
+        var i;
+
+        $.ajax({
+    	url: 'http://'+ ip +':8080/qgmovie/',
+    	type: 'post',
+    	processData: false,
+    	contentType: contentType,
+    	//contentType: contentTypes,
+        success: function(xhr) {
+            var jsonObj = JSON.parse(xhr.responseText);
+
+            switch(xhr.state) {
+                case '0': {
+                    
+                    break;
+                }
+
+                case '1'||'2': {
+                    for (i = 0; i < 24; i++) {
+                        createLi($('.hot-movie ul')[0], jsonObj.hotMovies[i]);
+                        createLi($('.new-movie ul')[0], jsonObj.newMovies[i]);
+                        createLi($('.high-commit-movie ul')[0], jsonObj.goodMovies[i]);
+                        createLi($('.person-recommend-movie ul')[0], jsonObj.recMovies[i]);
+                        if (i <= 12) {
+                            createRank($('.rank-container ul')[0], jsonObj.)
+                        }
+                    }
+                }
+
+                case '2': {
+                    /* 初始化个人头像 */
+                    break;
+                }
+            }
+        },
+        error: function() {
+            /* 请求失败 */
+        }
+    	});
+    }
+     
+    function pageJump(target) {
+        var jsonObj = {};
+
+        jsonObj.movieID = target.movie-id;
+
+        $.ajax({
+    	url: 'http://'+ ip +':8080/qgmovie/movie/detail',
+    	type: 'post',
+        data: JSON.stringify(jsonObj),
+        dataType: 'json',
+    	processData: false,
+    	//contentType: contentTypes,
+        success: successCallback,
+        error: function() {
+            // 请求超时
+        }
+    	});
+    }
+    </script>
+</body>
+</html>

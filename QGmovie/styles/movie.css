@@ -1,0 +1,260 @@
+.root {
+    height: auto;
+    background: url(../images/searchbg.jpg) no-repeat;
+    background-position: 0 -130px;
+    background-size: cover;
+}
+.header {
+    height: 80px;
+    width: 100%;
+    background-color: #232325;
+    text-align: center;
+}   
+#header-logo {
+    line-height: 80px;
+}
+#header-logo img {
+    width: 180px;
+}
+
+/* 底部栏 */
+
+.bottom {
+    height: 150px;
+    width: 100%;
+    background: url(../images/buttombg.png) no-repeat;
+    background-position: 0 -70px;
+    position: relative;
+    background-size: cover;
+} 
+.bottom img {   
+    width: 150px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -75px;
+}
+/* 主要部分 */
+.detail-container {
+    width: 100%;
+}
+.main-container {
+    height: auto;
+    width: 40%;
+    margin: 60px auto;
+    text-align: left;
+}
+/* 电影名 */
+#movie-name {
+    font-size: 40px; 
+    padding: 0;
+    letter-spacing: 5px;
+    font-family: "MicroSoftYaHei-Bold";
+    color: #181317;
+    text-align: center;
+}
+.movie-container {
+    width: 100%;
+    margin: 30px 0;
+}
+.movie-pic-container { 
+    height: auto;
+    margin-right: 70px;
+    display: inline-block;
+    background-color: #000;
+    vertical-align: top;
+}
+.movie-pic-container img {
+    height: 300px;
+    width: 250px;
+}
+.movie-detail {
+    height: auto;
+    display: inline-block;
+    text-align: left;
+}
+.movie-detail li {
+    margin-bottom: 20px;
+    color: #7f6e7f;
+    font-weight: 600;
+}
+.movie-detail span {
+    color: #171317;
+}
+/* 剧情简介 */
+.descrition-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.movie-header {
+    color: #560057;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+/* 简介 */
+#movie-descrition {
+    color: #181317;
+    font-size: 16px;
+    text-indent: 2em; 
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.info-container {
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+}
+.info-container li {
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    margin: 30px 0;
+}
+.info-container span {
+    height: 110px;
+    width: 110px;
+    line-height: 110px;
+    border-radius: 50%;
+    background-color: #000;
+    display: inline-block;
+    margin: 10px 40px; 
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+}
+.info-container p {
+    text-align: center;
+    font-size: 22px;
+}
+
+/* 评论模块 */
+.comment-cotainer {
+    width: 100%;
+    height: auto;
+    letter-spacing: 2px;
+}
+.comment-list-container {
+    margin: 40px 0;
+}
+.comment-list-container li {
+    height: auto;
+    width: 800px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    box-shadow: 0 3px 3px 0 #666;
+    position: relative;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+}
+.comment-header {
+    height: 30px;
+    width: 83%;
+    border-bottom: 1px solid #000;
+    margin: 0 auto;
+}
+/* 用户名 */
+.comment-header span {
+    font-size: 16px;
+    font-style: normal;
+    line-height: 30px;
+    font-weight: 600;
+}
+/* 时间 */
+.create-time {
+    font-size: 10px;
+    float: right;
+    line-height: 30px;
+    color: #aaa;
+}
+.user-head-container {
+    height: 70px;
+    width: 70px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    left: -15px;
+    overflow: hidden;
+}
+.user-head-container img {
+    height: 100%;
+}
+.comment-content {
+    width: 83%;
+    margin: 15px auto;
+}
+
+/* 翻页 */
+
+.page-container {
+    height: auto;
+    width: auto;
+    text-align: center;
+    margin:  0 auto;
+}
+.page-ul {
+    display: inline-block;
+}
+.page-container li {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    border-radius: 50%;
+    background-color: #c067c0;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+.page-container a {
+    text-align: center;
+    display: block;
+    line-height: 25px;
+    color: #fff;
+    height: 25px;
+    width: 25px;
+}
+.active-page a {
+    height: 32px ;
+    width: 32px;
+    font-size: 16px;
+    line-height: 32px;
+}
+/* 前进后退按钮 */
+.page-button {
+    background-color: transparent;
+    display: inline-block;
+}
+/* 撰写评论 */
+.create-comment {
+    height: auto;
+    width: 800px;
+    margin-top: 20px;
+}
+.comment-wrap {
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 0 #666;
+    border: 1px solid #000;
+    width: 700px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.create-comment textarea {
+    height: 50px;
+    width: 95%;
+    margin: 10px 20px; 
+    resize: none;
+    border: none;
+    outline: none;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}   
+.create-comment button {
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    background: #0cf;
+    color: #fff;
+    font-size: 16px;
+}

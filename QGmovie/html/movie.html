@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>movie</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- < 引入初始化样式 > -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <!-- < 引入样式表 > -->
+    <link rel="stylesheet" href="../styles/movie.css">
+    <!-- < 引入JQ > -->
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <!-- < 封装好的工具类 > -->
+    <script src="../scripts/util.js"></script>
+</head>
+<body>
+    <div class="root"> 
+        <!-- < 顶部栏 > -->
+        <div class="header">
+            <div class="logo-container">
+                <a href="javascript:" id="header-logo">
+                    <img src="../images/hlogo.png">
+                </a>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="detail-container">
+                <h1 id="movie-name"><span class="movie-name-container">超人总动员2</span></h1>
+                <div class="movie-container">
+                    <div class="movie-pic-container">
+                        <img src="" id="movie-pic">
+                    </div>
+                    <ul class="movie-detail">
+                        <li>影片导演：<span></span></li>
+                        
+                        <li>影片主演：<span></span></li>
+                        <li>分类标签：<span></span></li>
+                        <li>制片地区：<span></span></li>
+                        <li>上映时间：<span></span></li>
+                        <li>总片时长：<span></span></li>
+                        <li>电影评分：<span></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="descrition-container">
+                <h2 class="movie-header"><span class="movie-name-container">超人总动员2</span> 剧情简介</h2>
+                <p id="movie-descrition">
+                        《西虹市首富》的故事发生在《夏洛特烦恼》中的“特烦恼”之城“西虹市”。混迹于丙级业余足球队的守门员王多鱼（沈腾饰演），因比赛失利被开除离队。正处于人生最低谷的他接受了神秘台湾财团“一个月花光十亿资金”的挑战。本以为快乐生活就此开始，王多鱼却第一次感到“花钱特烦恼”！想要人生反转走上巅峰，真的没有那么简单。
+                </p>
+            </div>
+            <ul class="info-container">
+                <li><span>12312</span><p>点赞数</p></li>
+                <li><span>12312</span><p>收藏量</p></li>
+                <li><span>333</span><p>点击量</p></li>
+            </ul>
+            <div class="comment-container">
+                <h2 class="movie-header"><span class="movie-name-container">超人总动员2</span> 的最新影评</h2>
+                <ul class="comment-list-container">
+                    <!-- <li>
+                        <div class="comment-header">
+                            <a href="javascript:" class="user-head-container">
+                                <img src="../images/images/post.jpg" class="user-pic">
+                            </a>
+                            <span class="user-name">用户名</span>
+                            <i class="create-time">2018-8-1</i>
+                        </div>
+                        <div class="comment-content">
+                            这是一条简单的评论
+                        </div>
+                    </li> -->
+                </ul>
+                <p>共有(<span id="comment-number">23123</span>)条评论</p>
+                <div class="page-container">
+                    <div class="page-button"><a href="javascript:" ><img src="../images/left.png"></a></div>
+                       <ul class="page-ul">
+                            <li><a href="javascript:" class="page-a">1</a></li>   
+                       </ul>
+                    <div class="page-button"><a href="javascript:" ><img src="../images/right.png"></a></div>
+                </div>
+                <div class="create-comment">
+                    <div class="comment-wrap"><textarea id="comment-textarea" placeholder="留下你的评论" ></textarea></div>
+                    <button id="comment-button">评论</button>
+                </div>
+            </div>
+        </div>
+        <!-- < 底部栏 > -->
+        <div class="bottom">
+            <img src="../images/hlogo.png">
+        </div>
+    </div>
+    <script src="../scripts/movie.js"></script>
+</body>
+</html>

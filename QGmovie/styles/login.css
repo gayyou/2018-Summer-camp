@@ -1,0 +1,247 @@
+/* 登陆注册css */
+
+body {
+    background: url(../images/bg.jpg) no-repeat fixed;
+    background-size: cover;
+    height: auto;
+    font-family: "MicrosoftYaHeiLight";
+    font-size: 20px;
+    color: #171317;
+}
+.root {
+    height: auto;
+    width: 100%;
+}
+.logo-container {
+    height: 180px;
+    width: 100%;
+    background: url(../images/logo.png) no-repeat center;
+    background-size: 730px;
+}
+.main-container {
+    width: 640px;
+    height: auto;
+    background-color: rgba(245, 238, 245, .8);
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 0 0 35px 0;
+}
+.switch-button {
+    width: 100%;
+    height: auto;
+}
+.switch-button button {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    padding: 37px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.form-container {
+    height: 70%;
+    width: 100%;
+}
+.input-container {
+    height: auto;
+    width: 338px;
+    margin: 40px auto; 
+    background-color: #fff;
+    border: 1px solid #171317;
+    border-radius: 3px;
+    position: relative;
+}
+.login-container .input-container {
+    margin: 50px auto;
+}
+
+/* 图标css */
+
+.input-container span {
+    display: inline-block;
+    height: 16px;
+    width: 40px;
+    border-right: 1px solid #bbb5bb;
+    padding-right: 2px;
+    margin: 13px 8px 0 0;
+}
+.email-icon {
+    background: url(../images/email.png) no-repeat;
+    background-size: 92px;
+    background-position: -15px -11px;
+}
+.username-icon {
+    background: url(../images/username.png) no-repeat center;
+    background-size: 29px;
+}
+.account-icon {
+    background: url(../images/account.png) no-repeat center;
+    background-size: 37px;
+}
+.password-icon {
+    background: url(../images/password1.png) no-repeat center;
+    background-size: 37px;
+    cursor: pointer;
+}
+input { 
+    background-color: transparent;
+    font-size: 16px;
+    height: 39px;
+    width: 80%;
+    padding: 1px 0;
+    vertical-align: top;
+}
+input::placeholder {
+    color: #bbb5bb;
+    font-size: 16px;
+}
+.input-container a {
+    position: absolute;
+    right: 0;
+    bottom: -22px;
+    text-align: right;
+    color: #6a646c;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+/* 登陆注册按钮 */
+
+.button-container {
+    width: auto;
+    height: auto; 
+    text-align: center;
+}
+.button-container input {
+    height: auto;
+    width: auto;
+    padding: 13px 67px; 
+    border-radius: 5px;
+    opacity: 1;
+    cursor: pointer;
+    transition: background-color 1s, color 1s;
+    border: 2px solid #af05aa;
+    margin: 10px 0;
+}
+.button-container input:hover {
+    background-color: #af05aa;
+    color: #fff;
+}
+.button-container a {
+    display: block;
+    color: #6a646c;
+}
+
+/* 切换表单时切换按钮样式 */
+
+.button-active {
+    background-color: #d9d5d9 !important;
+    color: rgba(27, 0, 33, .5);
+}
+
+/* 密码强度 */
+.password-type {
+    width: 400px;
+    margin: -35px auto -20px auto;
+}
+.password-type span {
+    display: inline-block;
+    height: 7px;
+    width: 50px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    margin-right: 15px;
+}
+#password-weak {
+    margin-left: 72px;
+}
+.password-type i {
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 8px;
+    font-style: normal;
+    color: rgba(0, 0, 0, 0);
+}
+.password-type b {
+    font-weight: normal;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0);
+}
+
+/* 根据强度改变b的颜色 */
+
+.prompt {
+    display: none;
+    position: absolute;
+    width: 140px;
+    height: 30px;
+    color: #d7250e;
+    font-size: 12px;
+    top: -5px;
+    left: 350px;
+    line-height: 25px;
+    border-right: 0!important;
+    margin-top: 13px;
+}
+.prompt span {
+    margin: 0;
+    color: #d7250e;
+    width: 105px!important;
+    height: 30px!important;
+    font-size: 12px;
+    border-right: 0!important;
+}
+.prompt div {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+    background-image: url(../images/alert.png);
+    background-size: 100%;
+}
+.main-floating-layer {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+.main-floating-layer div {
+    position: absolute;
+    width: 400px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-200px) translateY(-100px);
+    border-radius: 10px;
+    background-color: white;
+    transition: all .5s ease;
+    opacity: 0;
+}
+.floating-active {
+    opacity: 1!important;
+}
+.main-floating-layer span {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 70px;
+}
+.main-floating-layer button {
+    display: block;
+    width: 180px;
+    height: 40px;
+    margin: 40px auto;
+    border-radius: 10px;
+    background-color: transparent;
+    transition: background-color 1s, color 1s;
+    border: 2px solid #af05aa;
+}
+.main-floating-layer button:hover {
+    background-color: #af05aa;
+    color: #fff;
+}

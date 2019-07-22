@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <script src="./srcipts/test.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // console.log(obj);
+        // var route = [ //路径
+        //     {
+        //         steps: [ //要经历的步骤
+        //             {
+        //                 path: [  //此路段坐标集合
+        //                     {
+
+        //                     }
+        //                 ],
+        //                 start_location: [],
+        //                 end_location: [],
+        //                 time: "", //经过这个路段要多久
+        //             }
+        //         ], 
+        //         time: "",   //高德地图预测的时间
+        //         distance: "" //起点和终点之间的距离
+        //     }
+        // ]
+        // route[0].time = obj.time.toString();
+        // route[0].distance = obj.distance.toString();
+
+        // for (let i = 0; i < obj.steps.length; i++) {
+        //     route[0].steps[i].path = [],
+        
+        //     route[0].steps[i].start_location = {
+        //         lng: obj.steps[i].start_location.lng,
+        //         lat: obj.steps[i].start_location.lat
+        //     }
+        //     route[0].steps[i].end_location = {
+        //         lng: obj.steps[i].end_location.lng,
+        //         lat : obj.steps[i].end_location.lat,
+        //     }
+        //     route[0].steps[i].time = obj.steps[i].time.toString();
+
+        //     route[0].steps.push({
+               
+        //     });
+        //     for (let j = 0; j < obj.steps[i].path.length; j++) {
+        //         route[0].steps[i].path[j] = {
+        //             lng: obj.steps[i].path[j].lng,
+        //             lat: obj.steps[i].path[j].lat
+        //         }
+        //     }
+        // }
+        // route[0].steps.pop();
+        
+        // console.log(route[0]);
+        console.log(obj);
+
+    var route = [ //路径
+        {
+            index: 1, //第几条路线
+            steps: [ //要经历的步骤
+                {
+                    path: [ //此路段坐标集合
+                        {
+
+                        }
+                    ],
+                    start_location: {},
+                    end_location: {},
+                    time: "", //经过这个路段要多久
+                }
+            ],
+            allTime: "", //高德地图预测的时间
+            distance: "" //起点和终点之间的距离
+        }
+    ];
+    route[0].allTime = obj.time.toString();
+    route[0].distance = obj.distance.toString();
+
+    for (let i = 0; i < obj.steps.length; i++) {
+        route[0].steps[i].path = [];
+
+        route[0].steps[i].start_location = {
+            lon: obj.steps[i].start_location.lng,
+            lat: obj.steps[i].start_location.lat
+        };
+        route[0].steps[i].end_location = {
+            lon: obj.steps[i].end_location.lng,
+            lat: obj.steps[i].end_location.lat,
+        };
+        route[0].steps[i].time = obj.steps[i].time.toString();
+
+        route[0].steps.push({
+
+        });
+        for (let j = 0; j < obj.steps[i].path.length; j++) {
+            route[0].steps[i].path[j] = {
+                lon: obj.steps[i].path[j].lng,
+                lat: obj.steps[i].path[j].lat
+            }
+        }
+    }
+    //去除最后一个数组项
+    route[0].steps.pop();
+    console.log(route[0]);
+    </script>
+    <style>
+       
+        body {
+            height: 100vh;
+            width: 100%;
+            background-color: #000;
+        }
+        /* 信息浮窗 */
+#info-box {
+    height: auto;
+    width: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 5px 5px;
+    position: relative;
+    box-shadow: 1px 0 0 0 #222;
+}
+#info-box::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: 12px solid transparent;
+    border-top-color: #fff;
+    bottom: -22px;
+    left: 50%;
+    margin-left: -10px;
+    
+}
+#content {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+} 
+.set-button-container {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+}
+#start {
+    background-color: red;
+    margin-right: 25px;
+}
+.set-button {
+    height: ;
+    width: ;
+    border-radius: 5px;
+    font-size: 10px;
+    padding: 7px 13px;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background:  #00ccff;
+}
+#close-container {
+    width: 100%;
+    height: auto;
+    text-align: right
+}
+#close-button {
+    width: auto;
+    outline: none;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 600;
+    color: red;
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div id="info-box">
+        <div id="close-container"><button id="close-button">x</button></div>
+        <p id="content">广工</p>
+        <div class="set-button-container">
+            <button id="start" class="set-button">设为起点</button>
+            <button id="end" class="set-button">到这里去</button>
+        </div>
+    </div>
+    <script>
+    function analysisRouteData(data) {
+        var steps = [],
+            routes = [];
+
+        // function deepCopyObj(object) {
+        //     if (typeof object != 'object') {
+        //         return object;
+        //     } 
+        //     var newObj = {};
+        //     for (const key in object) {
+        //         if (object.hasOwnProperty(key)) {
+        //             newObj[key] = deepCopyObj(object[key]);
+        //         }
+        //     }
+        //     return newObj;
+        // }
+
+        function copyObj(object) {
+            var newObj = {};
+            for (const key in object) {
+                if (object.hasOwnProperty(key)) {
+                    newObj[key] = object[key];
+                }
+            }
+            return newObj;
+        }
+
+        for (let k = 0, route = {}; k < data.length; k++) {
+            route.allTime = data[k].time;
+            route.distance = data[k].distance;
+            route.index = k;
+
+            for (let i = 0, step = {}; i < data[k].steps.length; i++) {
+                step.startLocation = {};
+                step.endLocation = {};
+
+                step.startLocation.lon = data[k].steps[i].start_location.lng;
+                step.startLocation.lat = data[k].steps[i].start_location.lat;
+
+                step.endLocation.lon = data[k].steps[i].end_location.lng;
+                step.endLocation.lat = data[k].steps[i].end_location.lat;
+
+                step.time = data[k].steps[i].time;
+                // step.distance = data[0].steps[i].distance;
+
+                step.path = new Array();
+
+                for (let j = 0, path = {}; j < data[k].steps[i].path.length; j++) {
+                    path.lon =  data[k].steps[i].path[j].lng;
+                    path.lat =  data[k].steps[i].path[j].lat;
+                    step.path.push(copyObj(path));
+                }
+                
+                steps.push(copyObj(step));
+            }
+            route.steps = steps;
+            routes.push(copyObj(route));
+        }
+        return routes;
+    }
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+body {
+    height: auto;
+}
+.root {
+    height: auto;
+    width: 100%;
+}
+.header {
+    height: 80px;
+    width: 100%;
+    background-color: #232325;
+    text-align: center;
+}   
+#header-logo {
+    line-height: 80px;
+}
+#header-logo img {
+    width: 180px;
+}
+
+/* 底部栏 */
+
+.bottom {
+    height: 150px;
+    width: 100%;
+    background: url(../images/buttombg.png) no-repeat;
+    background-position: 0 -70px;
+    position: relative;
+    background-size: cover;
+} 
+.bottom img {   
+    width: 150px;
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    margin-left: -75px;
+}
+.main-container {
+    height: auto;
+    width: 100%;
+}
+
+/* 用户头像容器 */
+
+.user-container {
+    height: 210px;
+    width: 100%;
+    background-color: #dfc0d9;
+    position: relative;
+}
+.user-head-container {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #000;
+    text-align: center;
+    bottom: -40px;
+    left: 50%;
+    margin-left: -75px;
+    position: absolute;
+    overflow: hidden;
+}
+.user-head-container img {
+    width: 100%;
+    height: 100%;
+}
+.introdution-container {
+    height: 50px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 60px;
+}
+#introdution {
+    width: auto;
+    height: 100%;
+    font-size: 24px;
+    text-align: center;
+}
+/* 导航栏 */
+
+.info-ul {
+    height: auto;
+    width: 70%;
+    margin: 80px auto 0px auto;
+    text-align: center;
+    border-top: 1px solid black;
+}
+.info-ul li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 0 20px;
+}
+.info-ul a {
+    color: #171317;
+    font-size: 24px;
+}
+.ajax-container {
+    height: 1000px;
+    width: 70%;
+    margin: 110px auto;
+}
+.user-ul, .comment-ul, .history-ul, .collect-ul {
+    font-size: 20px;
+    margin: 0 auto;
+    width: 70%;
+    display: none;
+}
+.user-ul label {
+    display: inline-block;
+    padding-left: 50px;
+    padding-right: 70px;
+    width: 80px;
+}
+.user-ul input {
+    font-size: 18px;
+    width: auto;
+    text-align: left;
+}
+.radio {
+    width: auto !important;
+}
+.user-ul li {
+    height: 90px;
+    line-height: 90px;
+    border: 1px solid #17131780;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: none;
+    width: auto;
+}
+.user-ul img {
+    height: 20px;
+    cursor: pointer;
+}
+.commit-button {
+    height: 40px;
+    width: 120px;
+    display: block;
+    margin: 40px auto;
+    border-radius: 5px;
+    border: 1px solid black;
+    background: transparent;
+}
+/* 评论 */
+.comment-ul li, .history-ul li, .collect-ul li {
+    height: auto;
+    border: 1px solid #17131780;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: none;
+    width: 100%;
+    padding: 10px;
+}
+.comment-header {
+    font-size: 16px;
+    position: relative;
+    margin: 40px 0;
+}
+.comment-header span {
+    font-weight: 600;
+    padding: 0 8px;
+    color: red;
+}
+.comment-container {
+    font-size: 20px;
+}
+
+/* 删除评论按钮 */
+
+.delete-button {
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    color: #a7a2a7;
+}
+
+.comment-bottom {
+    text-align: right;
+    line-height: 40px;
+}
+
+/* 评论时间 */
+
+.comment-time {
+    font-size: 16px;
+}
+
+/* 历史记录 */
+
+.history-ul a,  .collect-ul a{
+    display: block;
+    height: auto;
+    width: 99%;
+    margin: 10px auto;
+    color: #171317;
+}
+.collect-movie-pic, .history-movie-pic{
+    height: 113px;
+    width: 80px;
+    background-color: #000;
+}
+.collect-movie-name, .history-movie-name {
+    margin: 0 18px;
+    font-size: 18px;
+}
+.view-time, .collect-time {
+    font-size: 14px;
+    float: right;
+    bottom: 0;
+}
+
+/* 没有数据时的提示 */
+.tips-container {
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+}
+

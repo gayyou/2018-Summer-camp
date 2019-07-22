@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- < 引入初始化样式 > -->
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <!-- < 引入样式表 > -->
+    <link rel="stylesheet" href="../styles/info.css">
+    <!-- < 引入JQ > -->
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <!-- < 封装好的工具类 > -->
+    <script src="../scripts/util.js"></script>
+</head>
+<body>  
+    <div class="root">
+        <!-- < 顶部栏 > -->
+        <div class="header">
+            <div class="logo-container">
+                <a href="javascript:" id="header-logo">
+                    <img src="../images/hlogo.png">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="user-container">
+            <div class="user-head-container">
+                <img src="" id="user-pic">
+            </div>
+           
+        </div>
+        <div class="introdution-container"><input type="text" id="introdution" value="请用一句话介绍你自己"></div>
+        <ul class="info-ul">
+           <li><a href="javascript:">个人信息</a></li>
+           <li><a href="javascript:">我的评论</a></li>
+           <li><a href="javascript:">浏览记录</a></li>
+           <li><a href="javascript:">我的收藏</a></li>
+        </ul>
+        <div class="ajax-container">
+            <ul class="user-ul show">
+                <li><label for="">用户名</label><input type="text" value="用户名"><img src="../images/edit.png" class="can-edit-user"></li>
+                <li><label for="">性别</label><input type="text" value="男"><img src="../images/edit.png" class="can-edit-user"></li>
+                <li><label for="">生日</label><input type="text" id="birthday"><img src="../images/edit.png" class="can-edit-user"></li>
+                <li><label for="">QQ</label><input type="text" placeholder="填写"><img src="../images/edit.png" class="can-edit-user"></li>
+                <li><label for="">学历</label><input type="text" placeholder="填写"><img src="../images/edit.png" class="can-edit-user"></li>
+                <li><label for="">职业</label><input type="text" placeholder="填写"><img src="../images/edit.png" class="can-edit-user"></li>
+                <button class="commit-button">确认修改</button>
+            </ul>
+            <ul class="comment-ul">
+                <div class="tips-container">你还没有评论哟</p>
+            </ul>
+            <ul class="history-ul" >
+                <div class="tips-container">浏览历史为空</p>
+            </ul>
+            <ul class="collect-ul">
+                <div class="tips-container">赶紧去收藏几部电影吧</p>
+            </ul>
+        </div>
+    </div>
+    <!-- < 底部栏 > -->
+    <div class="bottom">
+        <img src="../images/hlogo.png">
+    </div>
+    <script src="../scripts/info.js"></script>
+</body>
+</html>

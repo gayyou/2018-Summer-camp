@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <title>QG出租车大数据平台</title>
+    <!-- 360 使用Google Chrome Frame -->
+    <meta name="renderer" content="webkit">
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 开启响应式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO页面关键词 -->
+    <meta name="keywords" content="your keywords">
+    <!-- SEO页面描述 -->
+    <meta name="description" content="your description">
+    <!-- favicon，可更改图片类型 -->
+    <link rel="shortcut icon"  />
+    <!-- 引入预设css -->
+    <link rel="stylesheet" href="../styles/reset.css">
+    <!-- 引入css文件 -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <!-- 引入加载动画文件 -->
+    <link rel="stylesheet" href="../styles/loading.css">
+    <!-- 引入工具类js文件 -->
+    <script src="../srcipts/util.js"></script>
+    <!-- 引入JQ -->
+    <script src="../srcipts/jquery-3.3.1.min.js"></script>
+    <!-- 引入echarts文件 -->
+    <script src="../srcipts/echarts.min.js"></script>
+</head>
+<body>
+    <div class="root">
+        <div class="route-roading-container">
+            <div class="route-roading">
+                <p>正在规划最佳路线</p>    
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="panel-container">
+            <section class="panel-left-container">
+                <div class="panel-main-container">
+                    <div class="panel-top-container">
+                        <ul class="loaction-container">
+                            <li>
+                                <div class="label-container">
+                                    <img src="../images/icon_locationmarker.png"><span>起点</span>
+                                </div>
+                                <div class="location-input-container">
+                                    <input type="text" class="location-input" id="start-input">
+                                    <button class="clear-input-button"></button>
+                                </div>
+                            </li>
+                            <div id="time-icon"></div>
+                            <li>
+                                <div class="label-container">
+                                    <img src="../images/icon_locationmarker.png"><span>终点</span>
+                                </div >
+                                <div class="location-input-container">
+                                    <input type="text" class="location-input" id="end-input">
+                                    <button class="clear-input-button"></button>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="search-container">
+                            <img src="../images/icon/icon_search.png">
+                            <input type="text" id="search-input">
+                        </div>
+                    </div>
+                    <div class="panel-bottom-container">
+                        <div class="nav-1">
+                            <img src="../images/icon/icon_data.png">
+                            <span>交通情况</span>
+                            <button class="show-second-menu-button"></button>
+                            <div class="nav-2-container">
+                                <ul class="nav-2-ul">
+                                    <li class="nav-2-li">
+                                        <img src="../images/icon/icon_curve.png">
+                                        <span>流量</span>
+                                    </li>
+                                    <li class="nav-2-li middle-li" id="rate">
+                                        <img src="../images/icon/icon_pie.png">
+                                        <span>出租车利用率</span>
+                                    </li>
+                                    <li class="nav-2-li">
+                                        <img src="../images/icon/icon_barchart.png">
+                                        <span>车辆数目</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="nav-1">
+                            <img src="../images/icon/icon_best.png">
+                            <span>最佳路线</span>
+                            <button class="show-second-menu-button"></button>
+                            <div class="route-container">
+                                <ul class="route-ul">
+                                    <li class="route-li" id="route-1" data-r="0">
+                                        <img src="../images/route_1.png">
+                                        <span class="route-time"></span>
+                                        <span class="route-distance"></span>
+                                        <!-- <div class="recommand">推荐</div> -->
+                                    </li>
+                                    <li class="route-li" id="route-2" data-r="1">
+                                        <img src="../images/route_2.png">
+                                        <span class="route-time"></span>
+                                        <span class="route-distance"></span>
+                                    </li>
+                                    <li class="route-li" id="route-3" data-r="2">
+                                        <img src="../images/route_3.png">
+                                        <span class="route-time"></span>
+                                        <span class="route-distance"></span>
+                                    </li>
+                                </ul>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-button">‹</div>
+            </section>
+            <!-- 看不见的右边视图层 -->
+            <section class="panel-right-container">
+                 <div class="loading-container">
+                <div class="h1Container">
+                    <div class="cube h1 w1 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w1 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w1 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w2 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w2 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w2 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w3 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w3 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                    <div class="cube h1 w3 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                </div>
+                <div class="h2Container">
+
+                    <div class="cube h2 w1 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w1 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w1 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w2 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w2 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w2 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w3 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w3 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h2 w3 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                </div>
+
+                <div class="h3Container">
+
+                    <div class="cube h3 w1 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w1 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w1 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w2 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w2 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w2 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w3 l1">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w3 l2">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+
+                    <div class="cube h3 w3 l3">
+                        <div class="face top"></div>
+                        <div class="face left"></div>
+                        <div class="face right"></div>
+                    </div>
+                </div>
+
+                </div>
+                <div class="display-data">
+                    <div>
+                    <span id="show-type">过去/未来3小时数据统计</span>
+                    <div id="close-show"></div>
+                    </div>
+                    <div class="flex-box data-container">
+                    <div class="arrows left-arrow"></div>
+                    <div id="show-area"></div>
+                    <div class="arrows right-arrow"></div>
+                    </div>
+                    <ul class="circles-container flex-box">
+                        <li class="first-circle li-active"></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="part-right">
+            <ul class="switch-box">
+                <li class="map-mode-switch-container"><div class="modeChoice flex-box mode-choiced" id="normal-map"><img src="../images/icon_map.png"></div><div class="modeChoice flex-box" id="heat-map"><img src="../images/icon_heat.png"></div><div class="switch-mode flex-box"><img src="../images/icon_change.png"></div></li>
+                <li class="time-mode-switch-container"><div class="modeChoice flex-box mode-choiced" id="past-tense"><img src="../images/icon_anticlockwise.png"></div><div class="modeChoice flex-box" id="future-tense"><img src="../images/icon_clockwise.png"></div><div class="switch-mode flex-box"><img src="../images/icon_time jumping.png"></div></li>
+                <li class="location-button flex-box"><img src="../images/icon_aim.png"></li>
+                <li class="abnormal-button"><img src="../images/abnormal.png"></li>
+            </ul>
+            <div class="date-switch-container">
+                <button>确定</button>
+                <div class="date-container flex-box">
+                    <div class="date" id="start-date"><span>----/--/--</span><div class="static"></div></div>
+                    <div class="time" id="start-time"><span>--:--</span><div class="static"></div></div>
+                    <div class="date-center"></div>
+                    <div class="date" id="end-date" ><span>----/--/--</span><div class="static"></div></div>
+                    <div class="time" id="end-time"><span>--:--</span><div class="static"></div></div>
+                </div>
+                <div class="switch-mode flex-box"><img src="../images/icon_time.png"></div>
+            </div>
+            <div id="map-container"></div>
+            <div class="date-list start-date-list list-animate">
+                <div class="choice-year-month-select-container flex-box">
+                    <div class="year-select-switch"><span></span><div class="static"></div></div>
+                    <div class="month-select-switch"><span></span><div class="static"></div></div>
+                    <time class="scroll-cut cut-first list-animate">
+                        <ul class="year-select-list">
+                        </ul>
+                    </time>
+                    <time class="scroll-cut list-animate">
+                        <ul class="month-select-list">
+                        </ul>
+                    </time>
+                </div>
+                <div class="choice-weekDay-container">
+                    <li>周日</li>
+                    <li>周一</li>
+                    <li>周二</li>
+                    <li>周三</li>
+                    <li>周四</li>
+                    <li>周五</li>
+                    <li>周六</li>
+                </div>
+                <div class="choice-date-container"></div>
+                <div class="choice-submit-container flex-box">
+                    <button class="certain">确定</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+            <div class="date-list end-date-list list-animate">
+                <div class="choice-year-month-select-container flex-box">
+                    <div class="year-select-switch"><span></span><div class="static"></div></div>
+                    <div class="month-select-switch"><span></span><div class="static"></div></div>
+                    <time class="scroll-cut cut-first list-animate">
+                        <ul class="year-select-list">
+                        </ul>
+                    </time>
+                    <time class="scroll-cut list-animate">
+                        <ul class="month-select-list">
+                        </ul>
+                    </time>
+                </div>
+                <div class="choice-weekDay-container">
+                    <li>周日</li>
+                    <li>周一</li>
+                    <li>周二</li>
+                    <li>周三</li>
+                    <li>周四</li>
+                    <li>周五</li>
+                    <li>周六</li>
+                </div>
+                <div class="choice-date-container"></div>
+                <div class="choice-submit-container flex-box">
+                    <button class="certain">确定</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+            <div class="time-list start-time-list list-animate">
+                <div class="time-switch-container flex-box">
+                    <div class="hours-switch"><span>23时</span><div class="static"></div></div>
+                    <div class="minutes-switch"><span>24分</span><div class="static"></div></div>
+                    <time class="time-scroll-cut time-scroll-cut-first list-animate">
+                        <ul class="hours-select-list"></ul>
+                    </time>
+                    <time class="time-scroll-cut list-animate">
+                        <ul class="minutes-select-list"></ul>
+                    </time>
+                </div>
+                <div class="choice-submit-container flex-box">
+                    <button class="certain">确定</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+            <div class="time-list end-time-list list-animate">
+                <div class="time-switch-container flex-box">
+                    <div class="hours-switch"><span>23时</span><div class="static"></div></div>
+                    <div class="minutes-switch"><span>24分</span><div class="static"></div></div>
+                    <time class="time-scroll-cut time-scroll-cut-first list-animate">
+                        <ul class="hours-select-list"></ul>
+                    </time>
+                    <time class="time-scroll-cut list-animate">
+                        <ul class="minutes-select-list"></ul>
+                    </time>
+                </div>
+                <div class="choice-submit-container flex-box">
+                    <button class="certain">确定</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+            <!-- < 下面是预测时候，将查看过去的元素隐藏 > -->
+            <div class="predict-date-switch-container" style="display: none;">
+                <button>确定</button>
+                <div class="predict-data-mode flex-box"><span>显示</span><div class="static"></div></div>
+                <div class="date-container flex-box">
+                    <div class="date" id="predict-date" ><span>----/--/--</span><div class="static"></div></div>
+                    <div class="time" id="predict-time"><span>--:--</span><div class="static"></div></div>
+                </div>
+                <div class="switch-mode flex-box"><img src="../images/icon_time.png"></div>
+            </div>
+            <div class="date-list predict-date-list list-animate">
+                <div class="choice-year-month-select-container flex-box">
+                    <div class="year-select-switch"><span></span><div class="static"></div></div>
+                    <div class="month-select-switch"><span></span><div class="static"></div></div>
+                    <time class="scroll-cut cut-first list-animate">
+                        <ul class="year-select-list">
+                        </ul>
+                    </time>
+                    <time class="scroll-cut list-animate">
+                        <ul class="month-select-list">
+                        </ul>
+                    </time>
+                </div>
+                <div class="choice-weekDay-container">
+                    <li>周日</li>
+                    <li>周一</li>
+                    <li>周二</li>
+                    <li>周三</li>
+                    <li>周四</li>
+                    <li>周五</li>
+                    <li>周六</li>
+                </div>
+                <div class="choice-date-container"></div>
+                <div class="choice-submit-container flex-box">
+                    <button class="certain">确定</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+            <div class="time-list predict-time-list list-animate">
+                <div class="time-switch-container flex-box">
+                    <div class="hours-switch"><span>23时</span><div class="static"></div></div>
+                    <div class="minutes-switch"><span>24分</span><div class="static"></div></div>
+                    <time class="time-scroll-cut time-scroll-cut-first list-animate">
+                        <ul class="hours-select-list"></ul>
+                    </time>
+                    <time class="time-scroll-cut list-animate">
+                        <ul class="minutes-select-list"></ul>
+                    </time>
+                </div>
+                <div class="choice-submit-container flex-box">
+                    <button class="certain">确定</button>
+                    <button class="cancel">取消</button>
+                </div>
+            </div>
+            <div class="data-mode-list list-animate" data-mode="1"><span class="data-mode-choiced">车辆数目</span><span>出租车需求量</span></div>
+        </div>
+    </div>
+    <div class="float-layer">
+        <div><span>出现错误</span><button>确认</button></div>
+        <div class="request-loading-container">
+                <img src="../images/qgtaxi.png">
+                <ul class="request-loading-animate">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+        </div>
+    </div>
+    <div class="tips transverse-tips">
+        <div></div>
+    </div>
+    <div class="tips portrait-tips">
+        <div></div>
+    </div>
+    <!-- 引入JS文件 -->
+    <script src="../srcipts/main.js"></script>
+</body>
+</html>
